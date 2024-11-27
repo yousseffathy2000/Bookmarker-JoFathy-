@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bookmarker</title>
+        <!-- Icon -->
+        <link rel="icon" href="images/bookmark.png">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+        <!-- Animation CSS File-->
+        <link rel="stylesheet" href="stylesheet/animation.css">
+        <!-- Font Awesome CSS File-->
+        <link rel="stylesheet" href="stylesheet/all.min.css">
+        <!-- Bootstrap Icons CSS File-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <!-- Bootstrap CSS File-->
+        <link rel="stylesheet" href="stylesheet/bootstrap.min.css">
+        <!-- Main CSS File-->
+        <link rel="stylesheet" href="stylesheet/style.css">
+        <!-- Media CSS File-->
+        <link rel="stylesheet" href="stylesheet/media.css">
+    </head>
+<body>
+<main class="py-5">
+    <div class="container text-center">
+        <h1 class="py-2">Bookmarker</h1>
+        <div class="bookmark-body mt-5 p-3 py-4 d-flex flex-column justify-content-center align-items-center gap-4">
+            <h2><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i class="fa-solid fa-bookmark"></i></h2>
+            <form class="w-100">
+                <div class="form-group mb-4">
+                    <label for="exampleInputEmail1" class="float-start pb-2 fw-semibold"><i class="fa-solid fa-book-bookmark pe-2"></i>Site Name</label>
+                    <input type="text" class="form-control" id="exampleInputSiteName" aria-describedby="emailHelp" placeholder="Bookmark Name" onkeyup="validateSiteName();">
+                    <div class="valid-feedback mb-3 mt-3 text-start" id="valid-feedback-site-name">Looks good!</div>
+                    <div class="invalid-feedback mb-3 mt-3 text-start" id="invalid-feedback-site-name">Please provide a valid Site Name</div>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="exampleInputPassword1" class="float-start pb-2 fw-semibold"><i class="fa-solid fa-link pe-2"></i>Site URL</label>
+                    <input type="url" class="form-control" id="exampleInputSiteUrl" placeholder="Website URL" onkeyup="validateUrl();">
+                    <div class="valid-feedback mb-3 mt-3 text-start" id="valid-feedback-url">Looks good!</div>
+                    <div class="invalid-feedback mb-3 mt-3 text-start" id="invalid-feedback-url">Please provide a valid Url</div>
+                </div>
+                <button type="button" class="btn btn-submit px-5" id="btn" onclick="addSite();">Submit</button>
+            </form>
+        </div>
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">index</th>
+                    <th scope="col">Website Name</th>
+                    <th scope="col">Visit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="circles d-flex justify-content-between align-items-center">
+                    <span class="rounded-circle me-2"></span>
+                    <span class="rounded-circle me-2"></span>
+                    <span class="rounded-circle me-2"></span>
+                </div>
+                <button type="button" class="ms-auto border-0 bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark close fs-3"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="m-0 pb-2">Site Name or Url is not valid, Please follow the rules below :</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa-regular fa-circle-right p-2"></i>Site name must contain at least 3 characters</li>
+                    <li><i class="fa-regular fa-circle-right p-2"></i>Site URL must be a valid one</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main JS File-->
+<script src="js/index.js"></script>
+<!-- Bootstrap JS File-->
+<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>
